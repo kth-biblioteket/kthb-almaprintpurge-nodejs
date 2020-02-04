@@ -1,0 +1,19 @@
+{
+  "name": "almaprintpurge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "find-remove": "^2.0.0",
+    "node-schedule": "^1.3.2",
+    "nodemailer": "^6.4.2",
+    "winston": "^3.2.1"
+  }
+}
