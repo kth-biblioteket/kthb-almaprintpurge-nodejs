@@ -62,6 +62,9 @@ function sendemail(html) {
     });
 }
 
+logger.log('info',"Alma Print service started");
+sendemail('<p>Alma Print service started</p>');
+
 let rule = new schedule.RecurrenceRule();
 rule.hour = process.env.RULE_HOUR;
 rule.minute = process.env.RULE_MINUTE;
