@@ -74,7 +74,7 @@ let j = schedule.scheduleJob(rule, function(){
     try {
         let result = findRemoveSync(process.env.APPDIR + process.env.PRINTHISTORYDIR, 
                                     {age: {seconds: process.env.DELETE_FILES_OLDER_THAN}, files: '*.*', limit: 1000})
-        sendemail('<p>' + JSON.stringify(result) + '<p>');
+        sendemail('<pre>' + JSON.stringify(result) + '<pre>');
         logger.log('info', result)
     }
     catch(error) {
