@@ -80,13 +80,13 @@ let j = schedule.scheduleJob(rule, function(){
         //resultjsonobj = JSON.parse(result);
         
         html = '<p>' + Object.keys(result).length + ' files deleted</p>';
-        /*
-        for (index in resultjsonobj) {
-            html = html + '<p>' + index + ' ' + resultjsonobj[index] + '</p>';
+        
+        for (index in result) {
+            html = html + '<p>' + index + ' ' + result[index] + '</p>';
         }
 
         sendemail(html);
-        */
+        
         logger.log('info', result)
     //}
     //catch(error) {
