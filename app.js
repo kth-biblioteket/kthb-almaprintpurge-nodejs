@@ -78,8 +78,9 @@ let j = schedule.scheduleJob(rule, function(){
         console.log(result);
         
         resultjsonobj = JSON.parse(result);
-        /*
+        
         html = '<p>' + Object.keys(resultjsonobj).length + ' files deleted</p>';
+        /*
         for (index in resultjsonobj) {
             html = html + '<p>' + index + ' ' + resultjsonobj[index] + '</p>';
         }
