@@ -71,14 +71,11 @@ rule.minute = process.env.RULE_MINUTE;
 rule.second = process.env.RULE_SECOND;
 
 let j = schedule.scheduleJob(rule, function(){
-    //try {
+    try {
         let html = '';
         let result = findRemoveSync(process.env.APPDIR + process.env.PRINTHISTORYDIR, 
         {age: {seconds: process.env.DELETE_FILES_OLDER_THAN}, files: '*.*', limit: 1000})
-        console.log(result);
-        
-        //resultjsonobj = JSON.parse(result);
-        
+
         html = '<p>' + Object.keys(result).length + ' files deleted</p>';
         
         for (index in result) {
@@ -88,9 +85,10 @@ let j = schedule.scheduleJob(rule, function(){
         sendemail(html);
         
         logger.log('info', result)
-    //}
-    //catch(error) {
-      //  logger.log('error', error)
-    //}
+    }
+    catch(error) {
+        logger.log('error', error)
+        sendemail('Error: ' + error);
+    }
 });
 
