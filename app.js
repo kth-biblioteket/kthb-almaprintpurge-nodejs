@@ -77,9 +77,9 @@ let j = schedule.scheduleJob(rule, function(){
         {age: {seconds: process.env.DELETE_FILES_OLDER_THAN}, files: '*.*', limit: 1000})
         console.log(result);
         
-        resultjsonobj = JSON.parse(result);
+        //resultjsonobj = JSON.parse(result);
         
-        html = '<p>' + Object.keys(resultjsonobj).length + ' files deleted</p>';
+        html = '<p>' + Object.keys(result).length + ' files deleted</p>';
         /*
         for (index in resultjsonobj) {
             html = html + '<p>' + index + ' ' + resultjsonobj[index] + '</p>';
