@@ -72,9 +72,17 @@ rule.second = process.env.RULE_SECOND;
 
 let j = schedule.scheduleJob(rule, function(){
     try {
+        let html = '';
         let result = findRemoveSync(process.env.APPDIR + process.env.PRINTHISTORYDIR, 
-                                    {age: {seconds: process.env.DELETE_FILES_OLDER_THAN}, files: '*.*', limit: 1000})
-        sendemail('<pre>' + JSON.stringify(result) + '<pre>');
+        {age: {seconds: process.env.DELETE_FILES_OLDER_THAN}, files: '*.*', limit: 1000})
+        
+        resultjsonobj = JSON.parse(result);
+        html = '<p>' + Object.keys(resultjsonobj).length + ' files deleted</p>';
+        for (index in resultjsonobj) {
+            html = html + '<p>' + index + ' ' + resultjsonobj[index] + '</p>';
+        }
+
+        sendemail(html);
         logger.log('info', result)
     }
     catch(error) {
